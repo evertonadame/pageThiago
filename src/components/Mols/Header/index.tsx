@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
+import { ReactNode } from 'react';
 import Burguer from './Burguer';
 import { 
   ImgContainer1,
@@ -12,15 +12,20 @@ import { useAuth } from 'hooks/auth';
 
 
 interface HeaderProps {
-
+  actualTab?: string;
+  tabs: Array<{ key: string; value: string }>;
   session?: boolean;
-
+  children?: ReactNode;
+  changeTab?(tab: string): void;
 
 }
 
 export const Header = ({
+  changeTab,
+  actualTab,
+  tabs,
   session = false,
-
+  children,
 }: HeaderProps): JSX.Element => {
 
 const { user } = useAuth();
