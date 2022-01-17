@@ -12,7 +12,6 @@ import { Seo } from 'components/Atoms/Seo';
 import { TeacherCard } from 'components/Atoms/TeacherCard';
 import { Tooltip } from 'components/Atoms/Tooltip';
 
-import { TimerDivider } from 'components/Mols/TimerDivider';
 
 import {
   Container, Heading, Content, YellowBar, WaitingTeacher,

@@ -15,7 +15,7 @@ const RightNav = ({ open }) => {
   const { handleSignOut, user } = useAuth();
   const { closeConnection } = useWs();
   const { recievedMessage, resetRecievedMessage } = useChat();
-  const { push, pathname } = useRouter();
+  const { push } = useRouter();
 
   useEffect(() => {
     if (recievedMessage.type === 'availability_changed') {

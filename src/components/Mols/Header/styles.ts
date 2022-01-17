@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-interface UserContainerProps {
-  bg: string;
-}
+
 
 export const HeaderCont = styled.header`
   background: linear-gradient(to bottom, #800080 10%, transparent);
