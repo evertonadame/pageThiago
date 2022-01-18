@@ -73,6 +73,8 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
     }
   };
 
+  
+
   const handleOpenMeets = async (): Promise<void> => {
     setLocalLoading(true);
     const response = await api.get<string>(
@@ -121,6 +123,7 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
       setMessages(updatedMessages);
       setImgUrl('');
       scrollBottom();
+      
     }
   };
 
@@ -232,7 +235,7 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
   const getTimeLeft = useMemo(() => {
     const estimatedAttendenceTime = user.wallet.balance / doubtInfo.teacher_subject.price;
     const timeToEnd =
-      estimatedAttendenceTime * 60 - (stopWatchTime ?? 0) < 0
+      estimatedAttendenceTime * 60 - (stopWatchTime ?? 0) > 0
         ? 0
         : estimatedAttendenceTime * 60 - (stopWatchTime ?? 0);
     const timeLabel = convertSecondsToHourMinuteSecond(timeToEnd, {
@@ -242,7 +245,7 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
    
     return (
       <p className={`${timeToEnd <= 120 ? 'danger' : ''}`}>
-        {timeLabel !== 'xx' ? 'Voce ainda tem' : 'Seu tempo acabou'}{' '}
+        {timeLabel !== 'xx' ? 'Você ainda tem' : 'Seu tempo acabou'}{' '}
         {timeLabel !== 'xx' ? timeLabel : '' }
       </p>
     );
@@ -251,11 +254,9 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
 
 
   // Teste para ver se bloqueia o Input do aluno ao digitar, passar para algum context provider depois, (código duplicado)
-  const estimated = Math.floor(
-    user.wallet.balance / doubtInfo.teacher_subject.price,
-  );
+  const estimated = user.wallet.balance / doubtInfo.teacher_subject.price;
   const timeEnd =
-  estimated * 60 - (stopWatchTime ?? 0) < 0
+  estimated * 60 - (stopWatchTime ?? 0) > 0
     ? 0
     : estimated * 60 - (stopWatchTime ?? 0);
     const timeLeft = convertSecondsToHourMinuteSecond(timeEnd, {
@@ -289,7 +290,9 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
                 key={item.timestamp}
               />
             ))}
-          <div className="time--sentinela__wrapper">
+         
+        </MessagesBox>
+        <div className="time--sentinela__wrapper">
             <div
               id="sentinela-bottom"
               className={`isTyping ${isTyping ? 'typing' : 'not-typing'} ${
@@ -315,18 +318,19 @@ export const MyChat = ({ doubtInfo }: MyChatProps): JSX.Element => {
                     </>
                   )}
                 </div>
+                <div className="image--clock">
                 <Image
                   src="/assets/svgs/relogio.svg"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   layout="fixed"
                   objectFit="contain"
-                  className="test"
+        
                 />
+                </div>
               </div>
             </div>
           </div>
-        </MessagesBox>
         {imgUrl && (
           <div className="image-preview-wrapper">
             <div className="img">

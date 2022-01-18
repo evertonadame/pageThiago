@@ -65,7 +65,7 @@ export const Textarea = ({
     if (textAreaReference.current) {
       textAreaReference.current.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
+        
         }
         if (e.key === 'Enter' && e.shiftKey) {
           if (textAreaReference.current) {

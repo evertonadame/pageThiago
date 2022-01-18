@@ -16,13 +16,7 @@ import { Seo } from 'components/Atoms/Seo';
 import ImageUpload, { ImageUploadHanldes } from 'components/Atoms/ImageUpload';
 
 import {
-  Container,
-  Content,
-  Heading,
-  QuestionContainer,
-  ButtonsContainer,
-  StyledButton,
-  ButtonsWrapperContainer
+  Container, Content, Heading, QuestionContainer, ButtonsContainer, StyledButton, ButtonsWrapperContainer
 } from 'styles/pages/doubts';
 import { useDoubt } from 'hooks/doubts';
 import { useAuth } from 'hooks/auth';
@@ -41,9 +35,9 @@ type DataFormInfo = {
 
 const Doubts = ({ subject }: DoubtsProps): JSX.Element => {
 
-
+  
   const [imagesArray, setImagesArray] = useState<string[]>(['']);
-
+  
   const { submitDoubt, isLoading } = useDoubt();
   const { user } = useAuth();
   const { push } = useRouter();
@@ -55,7 +49,7 @@ const Doubts = ({ subject }: DoubtsProps): JSX.Element => {
     setImagesArray(imgs);
   };
 
-  const handleSubmit = useCallback(async (data: DataFormInfo) => {
+  const handleSubmit = useCallback(async (data:DataFormInfo) => {
     try {
       formRef.current?.setErrors({});
 
@@ -77,7 +71,7 @@ const Doubts = ({ subject }: DoubtsProps): JSX.Element => {
         doubt_image: imagesArray[0] ? imagesArray[0] : ' ',
       };
 
-
+      
       await submitDoubt(newDoubt);
 
       formRef.current?.reset();
@@ -92,17 +86,17 @@ const Doubts = ({ subject }: DoubtsProps): JSX.Element => {
         formRef.current?.setErrors(errors);
       }
     }
-
+  
   }, [submitDoubt, subject.name, user.userId, imagesArray, push]);
-
+ 
   return (
-
+    
     <Container>
       <Seo title="Lista de dúvidas | Uber de plantões" metaDesc="Created by thl dev" />
       <Content>
-
+   
         <Heading>
-          <BackButton noText />
+            <BackButton noText />
           <div className="title">
             <Image
               src={`/assets/svgs/${subject.img}.svg`}
@@ -114,9 +108,9 @@ const Doubts = ({ subject }: DoubtsProps): JSX.Element => {
             />
             <p>{subject.name}</p>
           </div>
-
+         
         </Heading>
-        <span>Para continuar, coloque abaixo a sua dúvida, de forma clara!</span>
+         <span>Para continuar, coloque abaixo a sua dúvida, de forma clara!</span>
         <QuestionContainer>
           <p>Escreva aqui a sua dúvida</p>
           <div className="formWrapper">
@@ -125,14 +119,14 @@ const Doubts = ({ subject }: DoubtsProps): JSX.Element => {
                 id="textarea"
                 name="question"
                 containerStyle={{ width: '100%' }}
-
+               
               />
               <ButtonsWrapperContainer>
-
-                <ImageUpload type="multiple" setImgs={handleChangeImg} ref={multipleImageUploadRef} />
-                <ButtonsContainer>
-                  <StyledButton loading={isLoading} type="submit" id="text-capture">ENVIAR PERGUNTA</StyledButton>
-                </ButtonsContainer>
+             
+              <ImageUpload type="multiple" setImgs={handleChangeImg} ref={multipleImageUploadRef} />
+               <ButtonsContainer>
+                <StyledButton loading={isLoading} type="submit" id="text-capture">ENVIAR PERGUNTA</StyledButton>
+              </ButtonsContainer>
               </ButtonsWrapperContainer>
             </Form>
           </div>

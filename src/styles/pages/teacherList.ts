@@ -79,7 +79,7 @@ export const Heading = styled.header`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 2rem;
 
 @media (max-width: 425px) {
   margin-top: 1rem;
@@ -96,10 +96,10 @@ export const Heading = styled.header`
 `;
 
 export const Content = styled.section`
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 0 1rem 1.5rem;
+  padding: 0 0 1rem 0;
 
   @media(max-width: 768px) {
     padding: 0;
@@ -112,7 +112,7 @@ export const YellowBar = styled.div`
   align-items: center;
   flex-direction: column;
   height: 1.5rem;
-  width: 50%;
+  width: 55%;
   padding: 0 1rem 0 0;
   margin-left: -6rem;
   z-index: -1;
@@ -138,7 +138,7 @@ export const YellowBar = styled.div`
       color: var(--black);
       font-weight: 400;
       font-size: 1.25rem;
-      margin-left:4rem ;
+      margin-left: 4rem;
       line-height: 1.5rem;
       letter-spacing: 0.32px;
       width: 100%;
@@ -186,9 +186,9 @@ export const WaitingTeacher = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-top: 1rem;
+
   justify-content:center;
-  @media(min-width: 1024px) {
+  @media(min-width: 769px) {
     justify-content: left;
   }
   .image-wrapper{

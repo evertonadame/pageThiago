@@ -97,10 +97,11 @@ export const ChatActions = ({
             onChange={handleChangeInputValue}
             responsive
             placeholder="Mensagem"
-            disabled={disable}
+           
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
                 formRef.current?.submitForm();
+                e.preventDefault();
               }
             }}
           />

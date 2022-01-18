@@ -167,10 +167,10 @@ export const convertSecondsToHourMinuteSecond = (
   if (options) {
     if (options.onlyHoursNMinutes) {
       if (cdStringHours !== '00') {
-        return `${cdStringHours}h ${cdStringMinutes}m`;
+        return `${cdStringHours}h ${cdStringMinutes}min`;
       }
       if (cdStringHours === '00' && cdStringMinutes !== '00') {
-        return `${cdStringMinutes}m`;
+        return `${cdStringMinutes}: ${cdStringSeconds} min`;
       }
       if (cdStringHours === '00' && cdStringMinutes === '00' && cdStringSeconds !== '00') {
         return `${cdStringSeconds}s`;

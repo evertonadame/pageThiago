@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-
+interface UserContainerProps {
+  bg: string;
+}
 
 export const HeaderCont = styled.header`
   background: linear-gradient(to bottom, #800080 10%, transparent);
@@ -32,7 +34,7 @@ export const ImgContainer1 = styled.img`
  
 `
 export const ImgContainer2 = styled.img`
-      margin-right: 1rem;
+      
       margin-left: -0.5rem;
       width: 4rem;
       height: 4rem;

@@ -26,6 +26,11 @@ export const Container = styled.div<ContainerProps>`
     border-radius: 15px;
   }
 
+  
+  @media(min-width:1440px) {
+    height: 350px;
+  }
+
   & + div {
     margin-top: 8px;
   }

@@ -31,7 +31,7 @@ export const List = styled.div`
     margin: 0 0 1rem 0;
     width: 100%;
     min-height: 130px;
-    max-height: 180px;
+    max-height: 300px;
   }
 
 

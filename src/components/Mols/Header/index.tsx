@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { ReactNode } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 import Burguer from './Burguer';
 import { 
   ImgContainer1,
@@ -30,7 +30,7 @@ export const Header = ({
 
 const { user } = useAuth();
 const { push, pathname } = useRouter();
-
+const [screenSize, setScreenSize] = useState(true);
 
 
 
